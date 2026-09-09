@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <defs>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eef8ff"/><stop offset=".5" stop-color="#faf5ff"/><stop offset="1" stop-color="#f5fff9"/></linearGradient>
+    <linearGradient id="rainbow" x1="0" x2="1"><stop stop-color="#0b5d8e"/><stop offset=".33" stop-color="#3f5cc9"/><stop offset=".7" stop-color="#8447ae"/><stop offset="1" stop-color="#c95a55"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity=".16"/></filter>
+    <style>
+      .bg{fill:url(#page)}.card{fill:#fff;stroke:#b7cce0;stroke-width:1.5;filter:url(#shadow)}.head{fill:url(#rainbow)}.title{font:700 16px Arial,sans-serif;fill:#fff;letter-spacing:.4px}.field{font:13px Arial,sans-serif;fill:#203040}.pk{font-weight:bold;fill:#b14e00}.fk{font-weight:bold;fill:#007d69}.line{stroke:#5f77a0;stroke-width:2.5;fill:none}.label{font:700 12px Arial,sans-serif;fill:#425b7e}.legend{font:13px Arial,sans-serif;fill:#253849}.main{font:700 28px Arial,sans-serif;fill:#163d6b}.sub{font:14px Arial,sans-serif;fill:#52697c}
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#52718d"/></marker>
+  </defs>
+  <rect class="bg" width="1800" height="1200"/><circle cx="1730" cy="80" r="120" fill="#c7e9ff" opacity=".42"/><circle cx="80" cy="1060" r="130" fill="#eadbff" opacity=".38"/>
+  <text x="70" y="55" class="main">Restaurant Food Ordering Database</text>
+  <text x="70" y="80" class="sub">Entity Relationship Diagram • MySQL 8 • PK = Primary Key • FK = Foreign Key</text>
+
+  <!-- connectors behind cards -->
+  <path class="line" marker-end="url(#arrow)" d="M330 230 H410"/><text class="label" x="345" y="220">1 : M</text>
+  <path class="line" marker-end="url(#arrow)" d="M330 540 H410"/><text class="label" x="345" y="530">1 : M</text>
+  <path class="line" marker-end="url(#arrow)" d="M580 270 V470"/><text class="label" x="590" y="375">1 : M</text>
+  <path class="line" marker-end="url(#arrow)" d="M930 270 V470"/><text class="label" x="940" y="375">1 : M</text>
+  <path class="line" marker-end="url(#arrow)" d="M1270 270 V470"/><text class="label" x="1280" y="375">1 : M</text>
+  <path class="line" marker-end="url(#arrow)" d="M750 690 V845"/><text class="label" x="760" y="785">1 : M</text>
+  <path class="line" marker-end="url(#arrow)" d="M1100 690 V845"/><text class="label" x="1110" y="785">1 : M</text>
+  <path class="line" marker-end="url(#arrow)" d="M860 940 H940"/><text class="label" x="875" y="930">1 : 0..1</text>
+  <path class="line" marker-end="url(#arrow)" d="M1160 940 H1240"/><text class="label" x="1175" y="930">1 : M</text>
+  <path class="line" marker-end="url(#arrow)" d="M1430 540 H1510"/><text class="label" x="1443" y="530">1 : M</text>
+
+  <!-- customers -->
+  <g transform="translate(70 140)"><rect class="card" width="260" height="150" rx="8"/><rect class="head" width="260" height="34" rx="8"/><text class="title" x="16" y="22">CUSTOMERS</text><text class="field" x="16" y="58"><tspan class="pk">PK</tspan> customer_id</text><text class="field" x="16" y="82">full_name</text><text class="field" x="16" y="106">phone  [UNIQUE]</text><text class="field" x="16" y="130">email  [UNIQUE]</text></g>
+  <!-- tables -->
+  <g transform="translate(410 140)"><rect class="card" width="260" height="150" rx="8"/><rect class="head" width="260" height="34" rx="8"/><text class="title" x="16" y="22">RESTAURANT_TABLES</text><text class="field" x="16" y="58"><tspan class="pk">PK</tspan> table_id</text><text class="field" x="16" y="82">table_number  [UNIQUE]</text><text class="field" x="16" y="106">capacity</text><text class="field" x="16" y="130">status</text></g>
+  <!-- staff -->
+  <g transform="translate(800 140)"><rect class="card" width="260" height="150" rx="8"/><rect class="head" width="260" height="34" rx="8"/><text class="title" x="16" y="22">STAFF</text><text class="field" x="16" y="58"><tspan class="pk">PK</tspan> staff_id</text><text class="field" x="16" y="82">full_name</text><text class="field" x="16" y="106">role</text><text class="field" x="16" y="130">phone  [UNIQUE]</text></g>
+  <!-- menu -->
+  <g transform="translate(1140 140)"><rect class="card" width="260" height="150" rx="8"/><rect class="head" width="260" height="34" rx="8"/><text class="title" x="16" y="22">MENU</text><text class="field" x="16" y="58"><tspan class="pk">PK</tspan> menu_id</text><text class="field" x="16" y="82">item_name  [UNIQUE]</text><text class="field" x="16" y="106">category</text><text class="field" x="16" y="130">price</text></g>
+  <!-- reservations -->
+  <g transform="translate(70 450)"><rect class="card" width="260" height="166" rx="8"/><rect class="head" width="260" height="34" rx="8"/><text class="title" x="16" y="22">RESERVATIONS</text><text class="field" x="16" y="58"><tspan class="pk">PK</tspan> reservation_id</text><text class="field" x="16" y="82"><tspan class="fk">FK</tspan> customer_id → customers</text><text class="field" x="16" y="106"><tspan class="fk">FK</tspan> table_id → restaurant_tables</text><text class="field" x="16" y="130">reservation_time</text><text class="field" x="16" y="154">party_size, status</text></g>
+  <!-- orders -->
+  <g transform="translate(410 450)"><rect class="card" width="340" height="238" rx="8"/><rect class="head" width="340" height="34" rx="8"/><text class="title" x="16" y="22">ORDERS</text><text class="field" x="16" y="58"><tspan class="pk">PK</tspan> order_id</text><text class="field" x="16" y="82"><tspan class="fk">FK</tspan> customer_id → customers</text><text class="field" x="16" y="106"><tspan class="fk">FK</tspan> table_id → restaurant_tables</text><text class="field" x="16" y="130"><tspan class="fk">FK</tspan> staff_id → staff</text><text class="field" x="16" y="154">order_time</text><text class="field" x="16" y="178">order_type, status</text><text class="field" x="16" y="202">order_total</text><text class="field" x="16" y="226">notes</text></g>
+  <!-- inventory -->
+  <g transform="translate(1510 450)"><rect class="card" width="250" height="172" rx="8"/><rect class="head" width="250" height="34" rx="8"/><text class="title" x="16" y="22">INVENTORY</text><text class="field" x="16" y="58"><tspan class="pk">PK</tspan> inventory_id</text><text class="field" x="16" y="82"><tspan class="fk">FK</tspan> supplier_id → suppliers</text><text class="field" x="16" y="106">item_name</text><text class="field" x="16" y="130">quantity_in_stock</text><text class="field" x="16" y="154">reorder_level, unit_cost</text></g>
+  <!-- suppliers -->
+  <g transform="translate(1140 450)"><rect class="card" width="290" height="150" rx="8"/><rect class="head" width="290" height="34" rx="8"/><text class="title" x="16" y="22">SUPPLIERS</text><text class="field" x="16" y="58"><tspan class="pk">PK</tspan> supplier_id</text><text class="field" x="16" y="82">supplier_name [UNIQUE]</text><text class="field" x="16" y="106">contact_name</text><text class="field" x="16" y="130">phone</text></g>
+  <!-- details -->
+  <g transform="translate(610 845)"><rect class="card" width="250" height="166" rx="8"/><rect class="head" width="250" height="34" rx="8"/><text class="title" x="16" y="22">ORDER_DETAILS</text><text class="field" x="16" y="58"><tspan class="pk">PK</tspan> order_detail_id</text><text class="field" x="16" y="82"><tspan class="fk">FK</tspan> order_id → orders</text><text class="field" x="16" y="106"><tspan class="fk">FK</tspan> menu_id → menu</text><text class="field" x="16" y="130">quantity, unit_price</text><text class="field" x="16" y="154">line_total [GENERATED]</text></g>
+  <!-- billing -->
+  <g transform="translate(940 845)"><rect class="card" width="220" height="166" rx="8"/><rect class="head" width="220" height="34" rx="8"/><text class="title" x="16" y="22">BILLING</text><text class="field" x="16" y="58"><tspan class="pk">PK</tspan> bill_id</text><text class="field" x="16" y="82"><tspan class="fk">FK</tspan> order_id [UNIQUE]</text><text class="field" x="16" y="106">subtotal, tax_amount</text><text class="field" x="16" y="130">discount_amount</text><text class="field" x="16" y="154">grand_total, payment_status</text></g>
+  <!-- payments -->
+  <g transform="translate(1240 845)"><rect class="card" width="250" height="166" rx="8"/><rect class="head" width="250" height="34" rx="8"/><text class="title" x="16" y="22">PAYMENTS</text><text class="field" x="16" y="58"><tspan class="pk">PK</tspan> payment_id</text><text class="field" x="16" y="82"><tspan class="fk">FK</tspan> bill_id → billing</text><text class="field" x="16" y="106">payment_time</text><text class="field" x="16" y="130">amount, payment_method</text><text class="field" x="16" y="154">payment_status</text></g>
+  <rect x="70" y="1090" width="1660" height="62" rx="12" fill="#ffffff" opacity=".88" stroke="#b6cde0"/>
+  <text class="legend" x="95" y="1117"><tspan class="pk">PK</tspan> identifies each row uniquely</text><text class="legend" x="410" y="1117"><tspan class="fk">FK</tspan> references a parent table</text><text class="legend" x="720" y="1117">Arrows point from parent entity to dependent entity</text><text class="legend" x="95" y="1140">Key transaction flow: Customer + Table + Staff → Order → Order Details → Bill → Payment</text>
+</svg>
